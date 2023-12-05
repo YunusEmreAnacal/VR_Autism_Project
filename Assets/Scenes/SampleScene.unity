@@ -3537,8 +3537,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1647300840017719659, guid: b00b8d67ee2cbf04da4d93adbecf29f2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1647300840203027137, guid: b00b8d67ee2cbf04da4d93adbecf29f2, type: 3}
+      propertyPath: gravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647300840203027137, guid: b00b8d67ee2cbf04da4d93adbecf29f2, type: 3}
+      propertyPath: explosionForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647300840203027137, guid: b00b8d67ee2cbf04da4d93adbecf29f2, type: 3}
+      propertyPath: exposionRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647300840203027137, guid: b00b8d67ee2cbf04da4d93adbecf29f2, type: 3}
+      propertyPath: materialSlicedSide
+      value: 
+      objectReference: {fileID: 2100000, guid: 5750f18e988befc4f9a61a61a7da484a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b00b8d67ee2cbf04da4d93adbecf29f2, type: 3}
 --- !u!23 &1761869942102170367
