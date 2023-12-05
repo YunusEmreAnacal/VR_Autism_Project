@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EzySlice;
+using UnityEngine.XR.Interaction.Toolkit;
+
 public class SliceObj : MonoBehaviour
 {
     public Material materialSlicedSide;
@@ -33,6 +35,8 @@ public class SliceObj : MonoBehaviour
         rigidbody.isKinematic = kinematic;
         rigidbody.AddExplosionForce(explosionForce, obj.transform.position, exposionRadius);
         //Destroy(obj,3f);
+        XRGrabInteractable script = obj.AddComponent<XRGrabInteractable>();
         obj.tag= "CanSlice";
+       
     }
 }
