@@ -272,8 +272,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f90783a23003585468b84273344de0ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialAfterSlice: {fileID: 0}
   sliceMask:
     serializedVersion: 2
     m_Bits: 64
   isTouched: 0
+  materialSlicedSide: {fileID: 0}
+  explosionForce: 0
+  exposionRadius: 0
+  gravity: 0
+  kinematic: 0

@@ -14,30 +14,28 @@ public class Slicer : MonoBehaviour
 
     private void Update()
     {
-        
-            SliceObjects();
-        
-    }
-
-    private void SliceObjects()
-    {
         Collider[] objectsToBeSliced = Physics.OverlapBox(transform.position, new Vector3(1, 0.1f, 0.1f), transform.rotation, sliceMask);
-
-        foreach (Collider objectToBeSliced in objectsToBeSliced)
+        if (isTouched == true)
         {
-            SlicedHull slicedObject = SliceObject(objectToBeSliced.gameObject, materialSlicedSide);
+            isTouched = false;
 
-            GameObject upperHullGameobject = slicedObject.CreateUpperHull(objectToBeSliced.gameObject, materialSlicedSide);
-            GameObject lowerHullGameobject = slicedObject.CreateLowerHull(objectToBeSliced.gameObject, materialSlicedSide);
+            
+            
+            foreach (Collider objectToBeSliced in objectsToBeSliced)
+            {
+                SlicedHull slicedObject = SliceObject(objectToBeSliced.gameObject, materialSlicedSide);
 
-            upperHullGameobject.transform.position = objectToBeSliced.transform.position;
-            lowerHullGameobject.transform.position = objectToBeSliced.transform.position;
+                GameObject upperHullGameobject = slicedObject.CreateUpperHull(objectToBeSliced.gameObject, materialSlicedSide);
+                GameObject lowerHullGameobject = slicedObject.CreateLowerHull(objectToBeSliced.gameObject, materialSlicedSide);
 
-            MakeItPhysical(upperHullGameobject);
-            MakeItPhysical(lowerHullGameobject);
+                upperHullGameobject.transform.position = objectToBeSliced.transform.position;
+                lowerHullGameobject.transform.position = objectToBeSliced.transform.position;
 
-            Destroy(objectToBeSliced.gameObject);
-            SliceObjects();
+                MakeItPhysical(upperHullGameobject);
+                MakeItPhysical(lowerHullGameobject);
+
+                Destroy(objectToBeSliced.gameObject);
+            }
         }
     }
 
@@ -49,10 +47,9 @@ public class Slicer : MonoBehaviour
         rigidbody.useGravity = gravity;
         rigidbody.isKinematic = kinematic;
         rigidbody.AddExplosionForce(explosionForce, obj.transform.position, exposionRadius);
-
-        //Destroy(obj, 3f);
+        //Destroy(obj,3f);
         XRGrabInteractable script = obj.AddComponent<XRGrabInteractable>();
-
+        obj.tag = "CanSlice";
     }
 
     private SlicedHull SliceObject(GameObject obj, Material crossSectionMaterial = null)
