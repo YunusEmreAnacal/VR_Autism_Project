@@ -276,8 +276,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isTouched: 0
-  materialSlicedSide: {fileID: 0}
+  materialSlicedSide: {fileID: 2100000, guid: 44b2a3a1458da6a4a94c228d967474ad, type: 2}
   explosionForce: 0
   exposionRadius: 0
-  gravity: 0
+  gravity: 1
   kinematic: 0

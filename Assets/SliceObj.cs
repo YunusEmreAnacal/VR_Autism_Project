@@ -13,6 +13,7 @@ public class SliceObj : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.CompareTag("CanSlice"))
         {
             SlicedHull sliceobj = Slice(other.gameObject, materialSlicedSide);
