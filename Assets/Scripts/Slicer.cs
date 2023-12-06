@@ -19,8 +19,6 @@ public class Slicer : MonoBehaviour
         {
             isTouched = false;
 
-
-
             foreach (Collider objectToBeSliced in objectsToBeSliced)
             {
                 SlicedHull slicedObject = SliceObject(objectToBeSliced.gameObject, materialSlicedSide);
