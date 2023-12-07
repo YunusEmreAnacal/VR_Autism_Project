@@ -151,7 +151,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647300840017719659}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -276,8 +276,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   isTouched: 0
-  materialSlicedSide: {fileID: 2100000, guid: 68e27aaf04c3b460387632a04b88f540, type: 2}
-  explosionForce: 2
-  exposionRadius: 1
+  materialSlicedSide: {fileID: 2100000, guid: 5750f18e988befc4f9a61a61a7da484a, type: 2}
+  explosionForce: 0
+  exposionRadius: 0
   gravity: 1
   kinematic: 0

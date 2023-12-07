@@ -50,7 +50,7 @@ public class Slicer : MonoBehaviour
         obj.tag = "CanSlice";
     }
 
-    private SlicedHull SliceObject(GameObject obj, Material crossSectionMaterial = null)
+    private SlicedHull SliceObject(GameObject obj, Material crossSectionMaterial )
     {
         return obj.Slice(transform.position, transform.up, crossSectionMaterial);
     }

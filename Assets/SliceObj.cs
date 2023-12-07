@@ -27,7 +27,7 @@ public class SliceObj : MonoBehaviour
 
     private SlicedHull Slice(GameObject obj, Material mat)
     {
-        return obj.Slice(transform.position, direction: transform.up, mat);
+        return obj.Slice(transform.position, transform.up, mat);
     }
     void AddComponent (GameObject obj){
         obj.AddComponent<BoxCollider>();
