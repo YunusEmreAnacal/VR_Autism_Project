@@ -1010,7 +1010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830049379}
   m_LocalRotation: {x: 0, y: 0, z: -0, w: -1}
-  m_LocalPosition: {x: -6.38, y: 0.66526735, z: -3.35}
+  m_LocalPosition: {x: -6.286, y: 0.66526735, z: -3.35}
   m_LocalScale: {x: 0.26638, y: 0.26638, z: 0.26638}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1989,7 +1989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080856811}
   m_LocalRotation: {x: 0.00000008146034, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6083, y: 0.665, z: -3.277}
+  m_LocalPosition: {x: -5.445, y: 0.665, z: -3.341}
   m_LocalScale: {x: 0.16915, y: 0.16915, z: 0.16915}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2142,7 +2142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4068142598714166, guid: f3b80ff6904947949a912527d471aaa6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.42548004
+      value: 0.6293701
       objectReference: {fileID: 0}
     - target: {fileID: 4068142598714166, guid: f3b80ff6904947949a912527d471aaa6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2578,7 +2578,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -2628,7 +2628,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -3111,6 +3111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Device Simulator
       objectReference: {fileID: 0}
+    - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
 --- !u!4 &1850675618 stripped
@@ -3214,7 +3218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904331262}
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: -6.076, y: 0.691, z: -3.443}
+  m_LocalPosition: {x: -5.943, y: 0.691, z: -3.443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3431,7 +3435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5746391462962499036, guid: bc42712a7da280e45ae897aa1aaf286f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.58
+      value: -7.014
       objectReference: {fileID: 0}
     - target: {fileID: 5746391462962499036, guid: bc42712a7da280e45ae897aa1aaf286f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3439,7 +3443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5746391462962499036, guid: bc42712a7da280e45ae897aa1aaf286f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.977
+      value: -3.35
       objectReference: {fileID: 0}
     - target: {fileID: 5746391462962499036, guid: bc42712a7da280e45ae897aa1aaf286f, type: 3}
       propertyPath: m_LocalRotation.w
