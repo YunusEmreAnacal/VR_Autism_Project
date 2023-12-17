@@ -2128,6 +2128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: table (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1630820771654632, guid: f3b80ff6904947949a912527d471aaa6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4068142598714166, guid: f3b80ff6904947949a912527d471aaa6, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2632,6 +2636,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &1305409341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305409330}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2384916, y: 0.11242783, z: 0.1345073}
+  m_Center: {x: -0.0009073615, y: 0.05816891, z: -0.0009635091}
 --- !u!1001 &1394550376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3403,7 +3420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 206343759566596975, guid: bc42712a7da280e45ae897aa1aaf286f, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4968763670626031462, guid: bc42712a7da280e45ae897aa1aaf286f, type: 3}
       propertyPath: m_Name
