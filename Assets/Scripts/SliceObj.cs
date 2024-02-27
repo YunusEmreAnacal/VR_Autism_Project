@@ -8,7 +8,7 @@ public class SliceObj : MonoBehaviour
 {
     public Material bread;
     public Material lemon;
-    public Material tomato;
+    public Material Watermelon;
     public float explosionForce;
     public float exposionRadius;
     public bool gravity, kinematic;
@@ -40,7 +40,17 @@ public class SliceObj : MonoBehaviour
                 AddComponentForLemon(SlicedObjtop);
                 AddComponentForLemon(SliceObjDown);
             }
-            
+            else if (other.name.Contains("Watermelon"))
+            {
+                x = Watermelon;
+                SlicedHull sliceobj = Slice(other.gameObject, x);
+                GameObject SlicedObjtop = sliceobj.CreateUpperHull(other.gameObject, x);
+                GameObject SliceObjDown = sliceobj.CreateLowerHull(other.gameObject, x);
+                Destroy(other.gameObject);
+                AddComponentForWatermelon(SlicedObjtop);
+                AddComponentForWatermelon(SliceObjDown);
+            }
+
         }
     }
 
@@ -75,6 +85,22 @@ public class SliceObj : MonoBehaviour
         XRGrabInteractable script = obj.AddComponent<XRGrabInteractable>();
         obj.tag = "CanSlice";
         obj.name = "Lemon";
+
+        script.selectMode = InteractableSelectMode.Multiple;
+        script.useDynamicAttach = true;
+
+    }
+    void AddComponentForWatermelon(GameObject obj)
+    {
+        obj.AddComponent<BoxCollider>();
+        var rigidbody = obj.AddComponent<Rigidbody>();
+        rigidbody.useGravity = gravity;
+        rigidbody.isKinematic = kinematic;
+        rigidbody.AddExplosionForce(explosionForce, obj.transform.position, exposionRadius);
+        //Destroy(obj,3f);
+        XRGrabInteractable script = obj.AddComponent<XRGrabInteractable>();
+        obj.tag = "CanSlice";
+        obj.name = "Watermelon";
 
         script.selectMode = InteractableSelectMode.Multiple;
         script.useDynamicAttach = true;

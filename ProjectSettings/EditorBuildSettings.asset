@@ -4,7 +4,22 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 312a09b4b26aea348b5adb2c4b71715b
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 5a41439889c095f46bf10cc1335aa5c1
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 1b73352e55db49542ad4f7d4cf6d5c02
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 3b0eae618f690e44d8f9a4c0b8e7c662
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: dd7dcc0c14075a441a28b11ed21ff6be, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: cf0f7d694a3c2854eacc94a86b6f0e90, type: 2}
