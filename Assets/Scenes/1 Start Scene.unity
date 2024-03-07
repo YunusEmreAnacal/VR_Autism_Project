@@ -1113,6 +1113,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Device Simulator
       objectReference: {fileID: 0}
+    - target: {fileID: 4393025873866012024, guid: 293ee89dbf71bcb4e8a4a68848cbb136, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 293ee89dbf71bcb4e8a4a68848cbb136, type: 3}
 --- !u!1 &499704114
