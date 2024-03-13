@@ -15,6 +15,10 @@ public class SliceObj : MonoBehaviour
 
     public bool isInsideTrigger = false;
 
+    public float slicingSpeedThreshold = 0.5f; // Örnek eþik deðeri
+
+    public Rigidbody knifeRigidbody;
+
 
     private Material x;
 
@@ -26,11 +30,9 @@ public class SliceObj : MonoBehaviour
 
             Debug.Log("Nesne trigger alanýna girdi.");
             //    isInsideTrigger = true;
-
              other.GetComponent<Rigidbody>().isKinematic = true;
              other.GetComponent<BoxCollider>().isTrigger = true;
-            // Tetikleyiciye (ekmeðe) girdiðinde XR Grab Interactable bileþenini ve Rigidbody'yi devre dýþý býrak
-            // Ekmeðin XR Grab Interactable bileþenini devre dýþý býrak
+
             
         }
        
@@ -42,42 +44,45 @@ public class SliceObj : MonoBehaviour
 
         if (other.gameObject.CompareTag("CanSlice"))
             {
-                Debug.Log("Nesne trigger alanýndan çýktý.");
+                Debug.Log("Nesne trigger alanýndan çýktý. + " + knifeRigidbody.velocity.magnitude);
 
+            if (knifeRigidbody.velocity.magnitude >= slicingSpeedThreshold)
+            {
+                if (other.name.Contains("Bread"))
+                {
+                    x = bread;
+                    SlicedHull sliceobj = Slice(other.gameObject, x);
+                    GameObject SlicedObjtop = sliceobj.CreateUpperHull(other.gameObject, x);
+                    GameObject SliceObjDown = sliceobj.CreateLowerHull(other.gameObject, x);
+                    Destroy(other.gameObject);
+                    AddComponentForBread(SlicedObjtop);
+                    AddComponentForBread(SliceObjDown);
+                }
+                else if (other.name.Contains("Lemon"))
+                {
+                    x = lemon;
+                    SlicedHull sliceobj = Slice(other.gameObject, x);
+                    GameObject SlicedObjtop = sliceobj.CreateUpperHull(other.gameObject, x);
+                    GameObject SliceObjDown = sliceobj.CreateLowerHull(other.gameObject, x);
+                    Destroy(other.gameObject);
+                    AddComponentForLemon(SlicedObjtop);
+                    AddComponentForLemon(SliceObjDown);
+                }
+                else if (other.name.Contains("Watermelon"))
+                {
+                    x = Watermelon;
+                    SlicedHull sliceobj = Slice(other.gameObject, x);
+                    GameObject SlicedObjtop = sliceobj.CreateUpperHull(other.gameObject, x);
+                    GameObject SliceObjDown = sliceobj.CreateLowerHull(other.gameObject, x);
+                    Destroy(other.gameObject);
+                    AddComponentForWatermelon(SlicedObjtop);
+                    AddComponentForWatermelon(SliceObjDown);
+                }
+                other.GetComponent<Rigidbody>().isKinematic = false;
+                other.GetComponent<BoxCollider>().isTrigger = false;
+            }
 
-
-            if (other.name.Contains("Bread"))
-            {
-                x = bread;
-                SlicedHull sliceobj = Slice(other.gameObject, x);
-                GameObject SlicedObjtop = sliceobj.CreateUpperHull(other.gameObject, x);
-                GameObject SliceObjDown = sliceobj.CreateLowerHull(other.gameObject, x);
-                Destroy(other.gameObject);
-                AddComponentForBread(SlicedObjtop);
-                AddComponentForBread(SliceObjDown);
-            }
-            else if (other.name.Contains("Lemon"))
-            {
-                x = lemon;
-                SlicedHull sliceobj = Slice(other.gameObject, x);
-                GameObject SlicedObjtop = sliceobj.CreateUpperHull(other.gameObject, x);
-                GameObject SliceObjDown = sliceobj.CreateLowerHull(other.gameObject, x);
-                Destroy(other.gameObject);
-                AddComponentForLemon(SlicedObjtop);
-                AddComponentForLemon(SliceObjDown);
-            }
-            else if (other.name.Contains("Watermelon"))
-            {
-                x = Watermelon;
-                SlicedHull sliceobj = Slice(other.gameObject, x);
-                GameObject SlicedObjtop = sliceobj.CreateUpperHull(other.gameObject, x);
-                GameObject SliceObjDown = sliceobj.CreateLowerHull(other.gameObject, x);
-                Destroy(other.gameObject);
-                AddComponentForWatermelon(SlicedObjtop);
-                AddComponentForWatermelon(SliceObjDown);
-            }
-            other.GetComponent<Rigidbody>().isKinematic = false;
-            other.GetComponent<BoxCollider>().isTrigger = false;
+            
             
             
             //isInsideTrigger = false;

@@ -789,6 +789,14 @@ PrefabInstance:
       propertyPath: sliceAnim
       value: 
       objectReference: {fileID: 3621981466720538944}
+    - target: {fileID: 265295392, guid: 2a79468e213672b4984d41d9f26ab16a, type: 3}
+      propertyPath: knifeRigidbody
+      value: 
+      objectReference: {fileID: 141724061}
+    - target: {fileID: 265295392, guid: 2a79468e213672b4984d41d9f26ab16a, type: 3}
+      propertyPath: slicingSpeedThreshold
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1804115603063742, guid: 2a79468e213672b4984d41d9f26ab16a, type: 3}
       propertyPath: m_Name
       value: Knife2
@@ -839,6 +847,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a79468e213672b4984d41d9f26ab16a, type: 3}
+--- !u!54 &141724061 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 141724064, guid: 2a79468e213672b4984d41d9f26ab16a, type: 3}
+  m_PrefabInstance: {fileID: 141724060}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &207037979
 PrefabInstance:
   m_ObjectHideFlags: 0
