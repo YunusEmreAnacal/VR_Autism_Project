@@ -19,8 +19,16 @@ public class SliceObj : MonoBehaviour
 
     public Rigidbody knifeRigidbody;
 
+    AudioSource source;
+
+
 
     private Material x;
+
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -32,11 +40,13 @@ public class SliceObj : MonoBehaviour
             //    isInsideTrigger = true;
              other.GetComponent<Rigidbody>().isKinematic = true;
              other.GetComponent<BoxCollider>().isTrigger = true;
+             source.Play();
 
-            
         }
        
     }
+
+
 
     private void OnTriggerExit(Collider other)
     {
@@ -82,8 +92,8 @@ public class SliceObj : MonoBehaviour
                 other.GetComponent<BoxCollider>().isTrigger = false;
             }
 
-            
-            
+
+             source.Stop();
             
             //isInsideTrigger = false;
 
