@@ -14,7 +14,7 @@ public class HandPresencePhysics : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         rb.velocity = (target.position - transform.position) / Time.fixedDeltaTime;
 
