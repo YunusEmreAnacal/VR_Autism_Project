@@ -7,6 +7,8 @@ TagManager:
   - Can Slice
   - CanSlice
   - Hands
+  - Left Hand
+  - Right Hand
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - Sliceable
   - Left Hand Ph
   - Right Hand Ph
-  - 
-  - 
+  - Player
+  - Interactable
   - 
   - 
   - 
