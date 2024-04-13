@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class restartScript : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public GameObject vrControllers;
@@ -19,6 +19,14 @@ public class restartScript : MonoBehaviour
     private bool isPaused = false;
     private void Start()
     {
+        Time.timeScale = 1f; // Oyun zamanýný devam ettir.
+        isPaused = false;
+        pauseMenuUI.SetActive(false);
+        vrControllers.SetActive(true); // VR kontrollerini etkinleþtir.
+        mainCam.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
+        Cursor.visible = false; // Fareyi görünmez yap.
+
         mainCam.SetActive(false);
         Level1.onClick.AddListener(() => StartSelectedLevel(1));
         Level2.onClick.AddListener(() => StartSelectedLevel(2));

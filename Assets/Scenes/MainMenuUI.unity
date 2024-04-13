@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: cdbb40e11399e4a17882ada20a1b896a, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 1a36be5fab23bc3469f83686ec0272a2, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: VR AUTISM EDUCATION GAME
+  m_text: "VR \nOTIZM EGITIM OYUNU"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d96efdb64f2fd2a4f82d4ebf9a50f1bf, type: 2}
   m_sharedMaterial: {fileID: 330659742904912885, guid: d96efdb64f2fd2a4f82d4ebf9a50f1bf, type: 2}
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -5.045995, z: 0, w: 0}
+  m_margin: {x: -1.5902414, y: -5.045995, z: -1.5503902, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -385,20 +385,20 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2
+  m_Color: {r: 1, g: 0.8769559, b: 0.7794118, a: 1}
+  m_Intensity: 1.26
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Bias: 1.019
+    m_NormalBias: 0
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -429,8 +429,8 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 5000
-  m_UseColorTemperature: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -443,14 +443,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.83115745, y: -0.13186531, z: 0.22270794, w: 0.4921281}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 118.740005, y: -30, z: 0}
 --- !u!114 &410087042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28781,6 +28781,46 @@ PrefabInstance:
     - target: {fileID: 8749873011013116660, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749873011185879209, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
+      propertyPath: m_text
+      value: Vazgec
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749873011328032222, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
+      propertyPath: m_text
+      value: BOLUM 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749873011579920184, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
+      propertyPath: m_text
+      value: "Ses Ayarlar\u0131"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749873011672290447, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
+      propertyPath: m_text
+      value: BOLUM 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749873011826245428, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
+      propertyPath: m_text
+      value: Vazgec
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749873012104041637, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
+      propertyPath: m_text
+      value: Baslat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749873012441517436, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
+      propertyPath: m_text
+      value: BOLUM 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749873012492441204, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
+      propertyPath: m_text
+      value: Ayarlar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749873012503562852, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
+      propertyPath: m_text
+      value: BOLUM 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749873012721114822, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
+      propertyPath: m_text
+      value: "\xC7\u0131k\u0131s"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08ec8bff0e4d7b844961d6a3dc942eb3, type: 3}
