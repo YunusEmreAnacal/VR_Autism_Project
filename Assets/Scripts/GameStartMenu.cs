@@ -20,8 +20,9 @@ public class GameStartMenu : MonoBehaviour
     public Button Level3;
     public Button Level4;
 
-
+    public Button restartButton;
     public Button optionButton;
+    public Button backToMenuButton;
     public Button quitButton;
 
     public List<Button> returnButtons;
@@ -37,9 +38,12 @@ public class GameStartMenu : MonoBehaviour
         Level3.onClick.AddListener(() => StartSelectedLevel(3));
         Level4.onClick.AddListener(() => StartSelectedLevel(4));
 
+        restartButton.onClick.AddListener(RestartGame);
         startButton.onClick.AddListener(EnableStart);
         optionButton.onClick.AddListener(EnableOption);
+        backToMenuButton.onClick.AddListener(MainMenu);
         quitButton.onClick.AddListener(QuitGame);
+        
 
         foreach (var item in returnButtons)
         {
@@ -86,5 +90,17 @@ public class GameStartMenu : MonoBehaviour
         options.SetActive(true);
         
     }
-   
+
+    public void RestartGame()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
 }

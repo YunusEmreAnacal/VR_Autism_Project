@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public GameObject vrControllers;
-    public GameObject mainCam;
 
     public Button Level1;
     public Button Level2;
@@ -22,12 +21,12 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f; // Oyun zamanýný devam ettir.
         isPaused = false;
         pauseMenuUI.SetActive(false);
-        vrControllers.SetActive(true); // VR kontrollerini etkinleþtir.
-        mainCam.SetActive(false);
+        //vrControllers.SetActive(true); // VR kontrollerini etkinleþtir.
+        //mainCam.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
         Cursor.visible = false; // Fareyi görünmez yap.
 
-        mainCam.SetActive(false);
+
         Level1.onClick.AddListener(() => StartSelectedLevel(1));
         Level2.onClick.AddListener(() => StartSelectedLevel(2));
         Level3.onClick.AddListener(() => StartSelectedLevel(3));
@@ -49,8 +48,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f; // Oyun zamanýný durdur.
         isPaused = true;
         pauseMenuUI.SetActive(true);
-        vrControllers.SetActive(false); // VR kontrollerini devre dýþý býrak.
-        mainCam.SetActive(true);
+        //vrControllers.SetActive(false); // VR kontrollerini devre dýþý býrak.
+
         Cursor.lockState = CursorLockMode.None; // Fareyi serbest býrak.
         Cursor.visible = true; // Fareyi görünür yap.
     }
@@ -60,8 +59,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f; // Oyun zamanýný devam ettir.
         isPaused = false;
         pauseMenuUI.SetActive(false);
-        vrControllers.SetActive(true); // VR kontrollerini etkinleþtir.
-        mainCam.SetActive(false);
+        //vrControllers.SetActive(true); // VR kontrollerini etkinleþtir.
+
         Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
         Cursor.visible = false; // Fareyi görünmez yap.
     }
@@ -79,8 +78,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f; // Oyun zamanýný devam ettir.
         isPaused = false;
         pauseMenuUI.SetActive(false);
-        vrControllers.SetActive(true); // VR kontrollerini etkinleþtir.
-        mainCam.SetActive(false);
+        //vrControllers.SetActive(true); // VR kontrollerini etkinleþtir.
+
         Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
         Cursor.visible = false; // Fareyi görünmez yap.
     }
