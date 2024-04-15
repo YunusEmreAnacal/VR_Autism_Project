@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     public GameObject vrControllers;
+    public GameObject RayLine;
 
     public Button Level1;
     public Button Level2;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
         pauseMenuUI.SetActive(false);
         //vrControllers.SetActive(true); // VR kontrollerini etkinleþtir.
         //mainCam.SetActive(false);
+        RayLine.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
         Cursor.visible = false; // Fareyi görünmez yap.
 
@@ -36,10 +38,14 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
+            if (isPaused) { 
+                RayLine.SetActive(false);
                 Resume();
-            else
+            }
+            else {
+                RayLine.SetActive(true);
                 Pause();
+            }
         }
     }
 
