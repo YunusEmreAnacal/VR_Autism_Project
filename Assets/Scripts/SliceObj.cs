@@ -60,7 +60,7 @@ public class SliceObj : MonoBehaviour
 
 
         }
-        if (other.gameObject.CompareTag("Hands"))
+        if (other.gameObject.CompareTag("Hands") )
         {
             source1.clip = sesDosyasi2;
             source1.Play();
