@@ -8,8 +8,8 @@ using UnityEngine.XR;
 public class SliceObj : MonoBehaviour
 {
     public Material bread;
-    public Material lemon;
-    public Material Watermelon;
+    public Material Cucumber;
+    public Material Tomato;
     public float explosionForce;
     public float exposionRadius;
     public bool gravity, kinematic;
@@ -23,8 +23,12 @@ public class SliceObj : MonoBehaviour
 
     public Rigidbody knifeRigidbody;
 
-    public AudioClip sesDosyasi1; // Trigger alaný 1 için ses dosyasý
-    public AudioClip sesDosyasi2; // Trigger alaný 2 için ses dosyasý
+    public AudioClip breadVoice; // Trigger alaný 1 için ses dosyasý
+    public AudioClip cucumberVoice; // Trigger alaný 1 için ses dosyasý
+    public AudioClip tomatoVoice; // Trigger alaný 1 için ses dosyasý
+
+    public AudioClip handAlertVoice; // Trigger alaný 2 için ses dosyasý
+
     AudioSource source1;
 
 
@@ -55,14 +59,30 @@ public class SliceObj : MonoBehaviour
             //    isInsideTrigger = true;
             //other.GetComponent<Rigidbody>().isKinematic = true;
             //other.GetComponent<BoxCollider>().isTrigger = true;
-             source1.clip = sesDosyasi1;
-             source1.Play();
+            if (other.name.Contains("Bread"))
+            {
+                source1.clip = breadVoice;
+                source1.Play();
+            }
+
+            if (other.name.Contains("Cucumber"))
+            {
+                source1.clip = cucumberVoice;
+                source1.Play();
+            }
+
+            if (other.name.Contains("Tomato"))
+            {
+                source1.clip = tomatoVoice;
+                source1.Play();
+            }
+            
 
 
         }
         if (other.gameObject.CompareTag("Hands") )
         {
-            source1.clip = sesDosyasi2;
+            source1.clip = handAlertVoice;
             source1.Play();
             // Örneðin, sol kolu titreþtir
             if (leftController != null)
@@ -104,27 +124,27 @@ public class SliceObj : MonoBehaviour
                     //other.GetComponent<Rigidbody>().isKinematic = false;
                     //other.GetComponent<BoxCollider>().isTrigger = false;
                 }
-                else if (other.name.Contains("Lemon"))
+                else if (other.name.Contains("Cucumber"))
                 {
-                    x = lemon;
+                    x = Cucumber;
                     SlicedHull sliceobj = Slice(other.gameObject, x);
                     GameObject SlicedObjtop = sliceobj.CreateUpperHull(other.gameObject, x);
                     GameObject SliceObjDown = sliceobj.CreateLowerHull(other.gameObject, x);
                     Destroy(other.gameObject);
-                    AddComponentForLemon(SlicedObjtop);
-                    AddComponentForLemon(SliceObjDown);
+                    AddComponentForCucumber(SlicedObjtop);
+                    AddComponentForCucumber(SliceObjDown);
                     //other.GetComponent<Rigidbody>().isKinematic = false;
                     //other.GetComponent<BoxCollider>().isTrigger = false;
                 }
-                else if (other.name.Contains("Watermelon"))
+                else if (other.name.Contains("Tomato"))
                 {
-                    x = Watermelon;
+                    x = Tomato;
                     SlicedHull sliceobj = Slice(other.gameObject, x);
                     GameObject SlicedObjtop = sliceobj.CreateUpperHull(other.gameObject, x);
                     GameObject SliceObjDown = sliceobj.CreateLowerHull(other.gameObject, x);
                     Destroy(other.gameObject);
-                    AddComponentForWatermelon(SlicedObjtop);
-                    AddComponentForWatermelon(SliceObjDown);
+                    AddComponentForTomato(SlicedObjtop);
+                    AddComponentForTomato(SliceObjDown);
                     //other.GetComponent<Rigidbody>().isKinematic = false;
                     //other.GetComponent<BoxCollider>().isTrigger = false;
                 }
@@ -163,7 +183,7 @@ public class SliceObj : MonoBehaviour
         //obj.GetComponent<BoxCollider>().isTrigger = false;
 
     }
-    void AddComponentForLemon(GameObject obj)
+    void AddComponentForCucumber(GameObject obj)
     {
         obj.AddComponent<BoxCollider>();
         var rigidbody = obj.AddComponent<Rigidbody>();
@@ -173,7 +193,7 @@ public class SliceObj : MonoBehaviour
         //Destroy(obj,3f);
         XRGrabInteractable script = obj.AddComponent<XRGrabInteractable>();
         obj.tag = "CanSlice";
-        obj.name = "Lemon";
+        obj.name = "Cucumber";
 
         script.selectMode = InteractableSelectMode.Multiple;
         script.useDynamicAttach = true;
@@ -182,7 +202,7 @@ public class SliceObj : MonoBehaviour
         obj.GetComponent<BoxCollider>().isTrigger = false;
 
     }
-    void AddComponentForWatermelon(GameObject obj)
+    void AddComponentForTomato(GameObject obj)
     {
         obj.AddComponent<BoxCollider>();
         var rigidbody = obj.AddComponent<Rigidbody>();
@@ -192,7 +212,7 @@ public class SliceObj : MonoBehaviour
         //Destroy(obj,3f);
         XRGrabInteractable script = obj.AddComponent<XRGrabInteractable>();
         obj.tag = "CanSlice";
-        obj.name = "Watermelon";
+        obj.name = "Tomato";
 
         script.selectMode = InteractableSelectMode.Multiple;
         script.useDynamicAttach = true;
