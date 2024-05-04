@@ -9,6 +9,7 @@ TagManager:
   - Hands
   - Left Hand
   - Right Hand
+  - Ground
   layers:
   - Default
   - TransparentFX

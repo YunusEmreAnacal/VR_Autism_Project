@@ -22,6 +22,7 @@ public class SliceObj : MonoBehaviour
     public float slicingSpeedThreshold = 0.5f; // Örnek eþik deðeri
 
     public Rigidbody knifeRigidbody;
+    public BoxCollider knifeCollider;
 
     public AudioClip breadVoice; // Trigger alaný 1 için ses dosyasý
     public AudioClip cucumberVoice; // Trigger alaný 1 için ses dosyasý
