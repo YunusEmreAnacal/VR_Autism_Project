@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3345681832374545228}
   - component: {fileID: 3345681832374545230}
   - component: {fileID: 3345681832374545226}
+  - component: {fileID: 1572811641883443007}
   m_Layer: 10
   m_Name: NewTomato
   m_TagString: CanSlice
@@ -270,6 +271,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.6859036
   m_Center: {x: -0.006157131, y: -0.02354006, z: -0.0068468475}
+--- !u!114 &1572811641883443007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335938374578929232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdccabfa80944924987b14d973b4be84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 0}
 --- !u!1 &2182940760377692841
 GameObject:
   m_ObjectHideFlags: 0

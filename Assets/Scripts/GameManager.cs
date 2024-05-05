@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
 
-
 public class GameManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
@@ -17,18 +16,17 @@ public class GameManager : MonoBehaviour
     public Button Level3;
     public Button Level4;
 
-    
     public AudioSource source1;
     public AudioClip Level1GörevSesi;
     private List<GameObject> grabObj = new List<GameObject>();
 
     private bool isPaused = false;
+
     private void Start()
     {
         Time.timeScale = 1f; // Oyun zamanýný devam ettir.
         isPaused = false;
         pauseMenuUI.SetActive(false);
-        
         RayLine.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
         Cursor.visible = false; // Fareyi görünmez yap.
@@ -48,57 +46,52 @@ public class GameManager : MonoBehaviour
             grabObj.Add(obj);
         }
 
-
         Level1.onClick.AddListener(() => StartSelectedLevel(1));
         Level2.onClick.AddListener(() => StartSelectedLevel(2));
         Level3.onClick.AddListener(() => StartSelectedLevel(3));
         Level4.onClick.AddListener(() => StartSelectedLevel(4));
 
-
-
+        StartCoroutine(ActivateObjectsWithDelay());
     }
 
+    IEnumerator ActivateObjectsWithDelay()
+    {
+        foreach (GameObject obj in grabObj)
+        {
+            obj.SetActive(true);
+            yield return new WaitForSeconds(1f); // Her bir objenin aktive edilmesi arasýnda 0.1 saniye bekleyin
+        }
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused) { 
+            if (isPaused)
+            {
                 RayLine.SetActive(false);
                 Resume();
             }
-            else {
+            else
+            {
                 RayLine.SetActive(true);
                 Pause();
             }
         }
 
         // Eðer ses kaydý tamamlandýysa ve oyun objeleri devre dýþýysa
-        if (!source1.isPlaying )
+        if (!source1.isPlaying)
         {
-            Debug.Log("DONE");
-            // CanSlice tag'ine sahip tüm objeleri bul
-            
-
-            // Her bir objeyi devre dýþý býrak
-            foreach (GameObject obj in grabObj)
-            {
-                obj.SetActive(true);
-            }
-
+          
+            StartCoroutine(ActivateObjectsWithDelay());
         }
-        
-
     }
-
 
     void Pause()
     {
         Time.timeScale = 0f; // Oyun zamanýný durdur.
         isPaused = true;
         pauseMenuUI.SetActive(true);
-        
-
         Cursor.lockState = CursorLockMode.None; // Fareyi serbest býrak.
         Cursor.visible = true; // Fareyi görünür yap.
     }
@@ -108,8 +101,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f; // Oyun zamanýný devam ettir.
         isPaused = false;
         pauseMenuUI.SetActive(false);
-        
-
         Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
         Cursor.visible = false; // Fareyi görünmez yap.
     }
@@ -127,15 +118,12 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f; // Oyun zamanýný devam ettir.
         isPaused = false;
         pauseMenuUI.SetActive(false);
-        
-
         Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
         Cursor.visible = false; // Fareyi görünmez yap.
     }
 
     public void ExitGame()
     {
-        
         Application.Quit();
     }
 
@@ -150,4 +138,5 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneNumber);
     }
 }
+
 
