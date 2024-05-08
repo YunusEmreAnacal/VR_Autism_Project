@@ -16,38 +16,54 @@ public class GameManager : MonoBehaviour
     public Button Level3;
     public Button Level4;
 
+    public GameObject knifeImage;
+    public GameObject realKnife;
+
     public AudioSource source1;
+
+    public AudioClip MenuStartSesi;
     public AudioClip Level1GörevSesi;
     public AudioClip Level2GörevSesi;
     public AudioClip Level3GörevSesi;
     public AudioClip Level4GörevSesi;
     private List<GameObject> grabObj = new List<GameObject>();
 
-
+    
 
     private bool isPaused = false;
 
     private void Start()
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("mevcut level: "+currentSceneIndex);
         Time.timeScale = 1f; // Oyun zamanýný devam ettir.
         isPaused = false;
         pauseMenuUI.SetActive(false);
         RayLine.SetActive(false);
+        
         Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
         Cursor.visible = false; // Fareyi görünmez yap.
 
         // Ses kaydýný baþlat
         source1 = GetComponent<AudioSource>();
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (currentSceneIndex == 1)
+
+        if (currentSceneIndex == 0)
+        {
+            source1.clip = MenuStartSesi;
+            source1.Play();
+        }
+        else if (currentSceneIndex == 1)
         {
             source1.clip = Level1GörevSesi;
             source1.Play();
         }
         else if (currentSceneIndex == 2)
         {
+            knifeImage.SetActive(true);
+            realKnife.SetActive(false);
             source1.clip = Level2GörevSesi;
             source1.Play();
+
         }
         else if (currentSceneIndex == 3)
         {
@@ -59,6 +75,7 @@ public class GameManager : MonoBehaviour
             source1.clip = Level4GörevSesi;
             source1.Play();
         }
+        
 
 
         // CanSlice tag'ine sahip tüm objeleri bul
@@ -90,6 +107,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (isPaused)
@@ -105,11 +123,29 @@ public class GameManager : MonoBehaviour
         }
 
         // Eðer ses kaydý tamamlandýysa ve oyun objeleri devre dýþýysa
-        if (!source1.isPlaying)
+        if (!source1.isPlaying && currentSceneIndex == 1)
         {
-          
+
             StartCoroutine(ActivateObjectsWithDelay());
         }
+
+        if (!source1.isPlaying && currentSceneIndex == 2)
+        {
+            knifeImage.SetActive(false);
+            realKnife.SetActive(true);
+        }
+
+        if (!source1.isPlaying && currentSceneIndex == 3)
+        {
+            
+        }
+
+        if (!source1.isPlaying && currentSceneIndex == 4)
+        {
+            
+        }
+
+        
 
     }
 
@@ -151,7 +187,7 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex +1);
+        SceneManager.LoadScene(currentSceneIndex + 1);
         Time.timeScale = 1f; // Oyun zamanýný devam ettir.
         isPaused = false;
         pauseMenuUI.SetActive(false);

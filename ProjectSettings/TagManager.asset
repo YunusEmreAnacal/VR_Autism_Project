@@ -10,6 +10,7 @@ TagManager:
   - Left Hand
   - Right Hand
   - Ground
+  - Knife
   layers:
   - Default
   - TransparentFX

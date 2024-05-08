@@ -51,26 +51,33 @@ public class KaseKontrol : MonoBehaviour
         if (domatesSayisi == 1)
         {
             //source.Play();
-
+            StartCoroutine(StartAfterDelay(2f));
             //source.PlayOneShot(ClapVoice); // Ses dosyasýný oynat
 
-            // Karakteri hedef noktaya ýþýnla
-            karakterTransform.position = hedefNokta.position;
-            //kaseTransform.position = hedefNokta.position;
-            // Konfeti partikülünü aktifleþtir ve belirli bir süre sonra durdur
-            StartCoroutine(KonfetiPatlat());
-            
 
-            basariliEkrani.SetActive(true); // Baþarýlý ekraný göster
-            if (!basariliEkrani)
-            {
-                RayLine.SetActive(false);
-            }
-            else
-            {
-                RayLine.SetActive(true);
-                
-            }
+        }
+    }
+
+    IEnumerator StartAfterDelay(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime); // Belirtilen süre kadar bekler.
+                                                    // Karakteri hedef noktaya ýþýnla
+                                                    // Karakteri hedef noktaya ýþýnla
+        karakterTransform.position = hedefNokta.position;
+        //kaseTransform.position = hedefNokta.position;
+        // Konfeti partikülünü aktifleþtir ve belirli bir süre sonra durdur
+        StartCoroutine(KonfetiPatlat());
+
+
+        basariliEkrani.SetActive(true); // Baþarýlý ekraný göster
+        if (!basariliEkrani)
+        {
+            RayLine.SetActive(false);
+        }
+        else
+        {
+            RayLine.SetActive(true);
+
         }
     }
 
