@@ -1,0 +1,86 @@
+newmtl initialShadingGroup
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 0.00
+newmtl kitchenKnifeStandSet2:Handle1
+illum 4
+Kd 0.01 0.01 0.01
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.00 0.00 0.00
+Ns 20.00
+newmtl kitchenKnifeStandSet2:Handle2
+illum 4
+Kd 0.01 0.01 0.01
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.00 0.00 0.00
+Ns 20.00
+newmtl kitchenKnifeStandSet2:Handle3
+illum 4
+Kd 0.01 0.01 0.01
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.00 0.00 0.00
+Ns 20.00
+newmtl kitchenKnifeStandSet2:Handle4
+illum 4
+Kd 0.01 0.01 0.01
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.00 0.00 0.00
+Ns 20.00
+newmtl kitchenKnifeStandSet2:Handle9
+illum 4
+Kd 0.01 0.01 0.01
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.00 0.00 0.00
+Ns 20.00
+newmtl kitchenKnifeStandSet2:SheetMetal1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 128.00
+newmtl kitchenKnifeStandSet2:SheetMetal2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 128.00
+newmtl kitchenKnifeStandSet2:SheetMetal3
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 128.00
+newmtl kitchenKnifeStandSet2:SheetMetal4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 128.00
+newmtl kitchenKnifeStandSet2:SheetMetal9
+illum 4
+Kd 0.00 0.00 0.00
+Ka 1.00 1.00 1.00
+Tf 1.00 1.00 1.00
+Ni 1.45
+Ks 0.50 0.50 0.50
+Ns 128.00
