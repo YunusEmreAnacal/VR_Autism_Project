@@ -10,7 +10,7 @@ public class GameStartMenu : MonoBehaviour
     public GameObject mainMenu;
     public GameObject levels;
     public GameObject options;
-
+    
 
     [Header("Main Menu Buttons")]
     public Button startButton;
@@ -24,6 +24,7 @@ public class GameStartMenu : MonoBehaviour
     public Button optionButton;
     public Button backToMenuButton;
     public Button quitButton;
+    public Button nextLevel;
 
     public List<Button> returnButtons;
 
@@ -43,7 +44,8 @@ public class GameStartMenu : MonoBehaviour
         optionButton.onClick.AddListener(EnableOption);
         backToMenuButton.onClick.AddListener(MainMenu);
         quitButton.onClick.AddListener(QuitGame);
-        
+        nextLevel.onClick.AddListener(NextLevel);
+
 
         foreach (var item in returnButtons)
         {
@@ -101,6 +103,14 @@ public class GameStartMenu : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void NextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex + 1);
+        Time.timeScale = 1f; // Oyun zamanýný devam ettir.
+
     }
 
 }

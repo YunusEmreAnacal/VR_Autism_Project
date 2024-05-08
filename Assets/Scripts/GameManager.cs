@@ -18,7 +18,12 @@ public class GameManager : MonoBehaviour
 
     public AudioSource source1;
     public AudioClip Level1GörevSesi;
+    public AudioClip Level2GörevSesi;
+    public AudioClip Level3GörevSesi;
+    public AudioClip Level4GörevSesi;
     private List<GameObject> grabObj = new List<GameObject>();
+
+
 
     private bool isPaused = false;
 
@@ -33,8 +38,28 @@ public class GameManager : MonoBehaviour
 
         // Ses kaydýný baþlat
         source1 = GetComponent<AudioSource>();
-        source1.clip = Level1GörevSesi;
-        source1.Play();
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentSceneIndex == 1)
+        {
+            source1.clip = Level1GörevSesi;
+            source1.Play();
+        }
+        else if (currentSceneIndex == 2)
+        {
+            source1.clip = Level2GörevSesi;
+            source1.Play();
+        }
+        else if (currentSceneIndex == 3)
+        {
+            source1.clip = Level3GörevSesi;
+            source1.Play();
+        }
+        else if (currentSceneIndex == 4)
+        {
+            source1.clip = Level4GörevSesi;
+            source1.Play();
+        }
+
 
         // CanSlice tag'ine sahip tüm objeleri bul
         GameObject[] grabableObj = GameObject.FindGameObjectsWithTag("CanSlice");
@@ -85,6 +110,7 @@ public class GameManager : MonoBehaviour
           
             StartCoroutine(ActivateObjectsWithDelay());
         }
+
     }
 
     void Pause()
@@ -115,6 +141,17 @@ public class GameManager : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
+        Time.timeScale = 1f; // Oyun zamanýný devam ettir.
+        isPaused = false;
+        pauseMenuUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
+        Cursor.visible = false; // Fareyi görünmez yap.
+    }
+
+    public void NextLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex +1);
         Time.timeScale = 1f; // Oyun zamanýný devam ettir.
         isPaused = false;
         pauseMenuUI.SetActive(false);
