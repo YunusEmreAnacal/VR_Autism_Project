@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public GameObject knifeImage;
     public GameObject realKnife;
 
+    public GameObject Kapak;
+
     public AudioSource source1;
 
     public AudioClip MenuStartSesi;
@@ -26,7 +28,7 @@ public class GameManager : MonoBehaviour
     public AudioClip Level2GörevSesi;
     public AudioClip Level3GörevSesi;
     public AudioClip Level4GörevSesi;
-    private List<GameObject> grabObj = new List<GameObject>();
+    //private List<GameObject> grabObj = new List<GameObject>();
 
     
 
@@ -75,18 +77,20 @@ public class GameManager : MonoBehaviour
             source1.clip = Level4GörevSesi;
             source1.Play();
         }
-        
+
 
 
         // CanSlice tag'ine sahip tüm objeleri bul
-        GameObject[] grabableObj = GameObject.FindGameObjectsWithTag("CanSlice");
+        //GameObject[] grabableObj = GameObject.FindGameObjectsWithTag("CanSlice");
 
-        // Her bir objeyi devre dýþý býrak
-        foreach (GameObject obj in grabableObj)
-        {
-            obj.SetActive(false);
-            grabObj.Add(obj);
-        }
+        //// Her bir objeyi devre dýþý býrak
+        //foreach (GameObject obj in grabableObj)
+        //{
+        //    obj.SetActive(false);
+        //    grabObj.Add(obj);
+        //}
+
+        Kapak.SetActive(true);
 
         Level1.onClick.AddListener(() => StartSelectedLevel(1));
         Level2.onClick.AddListener(() => StartSelectedLevel(2));
@@ -98,11 +102,13 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ActivateObjectsWithDelay()
     {
-        foreach (GameObject obj in grabObj)
-        {
-            obj.SetActive(true);
-            yield return new WaitForSeconds(1f); // Her bir objenin aktive edilmesi arasýnda 0.1 saniye bekleyin
-        }
+        //foreach (GameObject obj in grabObj)
+        //{
+        //    obj.SetActive(true);
+        //    yield return new WaitForSeconds(1f); // Her bir objenin aktive edilmesi arasýnda 0.1 saniye bekleyin
+        //}
+        Kapak.SetActive(false);
+        yield return new WaitForSeconds(1f);
     }
 
     void Update()
