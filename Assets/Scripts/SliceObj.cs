@@ -14,6 +14,9 @@ public class SliceObj : MonoBehaviour
     public float exposionRadius;
     public bool gravity, kinematic;
 
+    public Transform respawnVegatables;
+    public Transform respawnBread;
+
     private InputDevice leftController;
     private InputDevice rightController;
 
@@ -180,6 +183,9 @@ public class SliceObj : MonoBehaviour
         script.selectMode = InteractableSelectMode.Multiple;
         script.useDynamicAttach = true;
 
+        ObejctTeleport script2 = obj.AddComponent<ObejctTeleport>();
+        script2.respawnPoint = respawnBread;
+
         //obj.GetComponent<Rigidbody>().isKinematic = false;
         //obj.GetComponent<BoxCollider>().isTrigger = false;
 
@@ -202,6 +208,9 @@ public class SliceObj : MonoBehaviour
         obj.GetComponent<Rigidbody>().isKinematic = false;
         obj.GetComponent<BoxCollider>().isTrigger = false;
 
+        ObejctTeleport script2 = obj.AddComponent<ObejctTeleport>();
+        script2.respawnPoint = respawnVegatables;
+
     }
     void AddComponentForTomato(GameObject obj)
     {
@@ -221,6 +230,9 @@ public class SliceObj : MonoBehaviour
 
         obj.GetComponent<Rigidbody>().isKinematic = false;
         obj.GetComponent<BoxCollider>().isTrigger = false;
+
+        ObejctTeleport script2 = obj.AddComponent<ObejctTeleport>();
+        script2.respawnPoint = respawnVegatables;
 
     }
 

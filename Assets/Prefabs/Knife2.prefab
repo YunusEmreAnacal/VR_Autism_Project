@@ -131,6 +131,8 @@ MonoBehaviour:
   exposionRadius: 0
   gravity: 1
   kinematic: 0
+  respawnVegatables: {fileID: 0}
+  respawnBread: {fileID: 0}
   isInsideTrigger: 0
   slicingSpeedThreshold: 0.005
   slicingSpeedMax: 0.5
