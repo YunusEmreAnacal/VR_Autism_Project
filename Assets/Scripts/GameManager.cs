@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject realKnife;
 
     public GameObject Kapak;
+    public GameObject Kapak2;
 
     public AudioSource source1;
 
@@ -91,6 +92,7 @@ public class GameManager : MonoBehaviour
         //}
 
         Kapak.SetActive(true);
+        Kapak2.SetActive(true);
 
         Level1.onClick.AddListener(() => StartSelectedLevel(1));
         Level2.onClick.AddListener(() => StartSelectedLevel(2));
@@ -108,6 +110,7 @@ public class GameManager : MonoBehaviour
         //    yield return new WaitForSeconds(1f); // Her bir objenin aktive edilmesi arasýnda 0.1 saniye bekleyin
         //}
         Kapak.SetActive(false);
+        Kapak2.SetActive(false);
         yield return new WaitForSeconds(1f);
     }
 
@@ -143,12 +146,12 @@ public class GameManager : MonoBehaviour
 
         if (!source1.isPlaying && currentSceneIndex == 3)
         {
-            
+            StartCoroutine(ActivateObjectsWithDelay());
         }
 
         if (!source1.isPlaying && currentSceneIndex == 4)
         {
-            
+            StartCoroutine(ActivateObjectsWithDelay());
         }
 
         

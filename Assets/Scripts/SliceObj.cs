@@ -20,7 +20,7 @@ public class SliceObj : MonoBehaviour
     public bool isInsideTrigger = false;
 
     public float slicingSpeedThreshold = 0.5f; // Örnek eþik deðeri
-
+    public float slicingSpeedMax = 0.5f;
     public Rigidbody knifeRigidbody;
     public BoxCollider knifeCollider;
 
@@ -111,9 +111,9 @@ public class SliceObj : MonoBehaviour
             {
                 Debug.Log("Nesne trigger alanýndan çýktý. + " + knifeRigidbody.velocity.magnitude);
 
-            if (knifeRigidbody.velocity.magnitude >= slicingSpeedThreshold)
+            if (knifeRigidbody.velocity.magnitude >= slicingSpeedThreshold && knifeRigidbody.velocity.magnitude <= slicingSpeedMax)
             {
-                if (other.name.Contains("Bread"))
+                if (other.name.Contains("Bread") || other.name.Contains("BreadC"))
                 {
                     x = bread;
                     SlicedHull sliceobj = Slice(other.gameObject, x);
@@ -125,7 +125,7 @@ public class SliceObj : MonoBehaviour
                     //other.GetComponent<Rigidbody>().isKinematic = false;
                     //other.GetComponent<BoxCollider>().isTrigger = false;
                 }
-                else if (other.name.Contains("Cucumber"))
+                else if (other.name.Contains("Cucumber") || other.name.Contains("CucumberC"))
                 {
                     x = Cucumber;
                     SlicedHull sliceobj = Slice(other.gameObject, x);
@@ -137,7 +137,7 @@ public class SliceObj : MonoBehaviour
                     //other.GetComponent<Rigidbody>().isKinematic = false;
                     //other.GetComponent<BoxCollider>().isTrigger = false;
                 }
-                else if (other.name.Contains("Tomato"))
+                else if (other.name.Contains("Tomato") || other.name.Contains("TomatoC"))
                 {
                     x = Tomato;
                     SlicedHull sliceobj = Slice(other.gameObject, x);
@@ -173,9 +173,9 @@ public class SliceObj : MonoBehaviour
         rigidbody.isKinematic = kinematic;
         rigidbody.AddExplosionForce(explosionForce, obj.transform.position, exposionRadius);
         //Destroy(obj,3f);
-        XRGrabInteractable script = obj.AddComponent<XRGrabInteractable>();
+        XRGrabInteractableTwoAttach script = obj.AddComponent<XRGrabInteractableTwoAttach>();
         obj.tag= "CanSlice";
-        obj.name = "Bread";
+        obj.name = "BreadC";
         
         script.selectMode = InteractableSelectMode.Multiple;
         script.useDynamicAttach = true;
@@ -192,9 +192,9 @@ public class SliceObj : MonoBehaviour
         rigidbody.isKinematic = kinematic;
         rigidbody.AddExplosionForce(explosionForce, obj.transform.position, exposionRadius);
         //Destroy(obj,3f);
-        XRGrabInteractable script = obj.AddComponent<XRGrabInteractable>();
+        XRGrabInteractableTwoAttach script = obj.AddComponent<XRGrabInteractableTwoAttach>();
         obj.tag = "CanSlice";
-        obj.name = "Cucumber";
+        obj.name = "CucumberC";
 
         script.selectMode = InteractableSelectMode.Multiple;
         script.useDynamicAttach = true;
@@ -211,9 +211,10 @@ public class SliceObj : MonoBehaviour
         rigidbody.isKinematic = kinematic;
         rigidbody.AddExplosionForce(explosionForce, obj.transform.position, exposionRadius);
         //Destroy(obj,3f);
-        XRGrabInteractable script = obj.AddComponent<XRGrabInteractable>();
+        XRGrabInteractableTwoAttach script = obj.AddComponent<XRGrabInteractableTwoAttach>();
         obj.tag = "CanSlice";
-        obj.name = "Tomato";
+        obj.name = "TomatoC";
+
 
         script.selectMode = InteractableSelectMode.Multiple;
         script.useDynamicAttach = true;

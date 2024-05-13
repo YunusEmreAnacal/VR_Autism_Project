@@ -39,7 +39,7 @@ public class XRSocketTagInteractor : XRSocketInteractor
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        XRBaseInteractable interactable = args.interactable;
+        XRBaseInteractable interactable = args.interactable; 
 
         if (interactable.transform.tag == targetTag)
         {

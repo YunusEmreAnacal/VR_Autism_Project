@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KaseKontrol : MonoBehaviour
+public class level4Kontrol : MonoBehaviour
 {
     public GameObject basariliEkrani; // Görev baþarýlý olduðunda görünecek olan ekran
     public Transform hedefNokta; // Görev baþarýlý olduðunda ýþýnlanýlacak mekan
     public Transform karakterTransform; // Karakterin transformu
-    public Transform kaseTransform; // Karakterin transformu
     public GameObject konfetiPrefab; // Konfeti partikül prefabý
 
     public float konfetiPatlamaSuresi = 5f; // Konfeti patlama süresi (saniye)
 
     private ParticleSystem konfetiPartikul; // Konfeti partikül sistemi
-    private int domatesSayisi = 0; // Toplam domates sayýsý
+    private int domatesDilimSayisi = 0; // Toplam domates sayýsý
+    private int salatalýkDilimSayisi = 0;
+    private int ekmekDilimSayisi = 0;
 
     public GameObject RayLine;
 
@@ -22,11 +23,13 @@ public class KaseKontrol : MonoBehaviour
     public AudioSource BravoVoice;
 
 
+
+
     void Start()
     {
         //source = GetComponent<AudioSource>();
         //source.clip = ClapVoice;
-        
+
         // Konfeti partikül sistemini al
         konfetiPartikul = konfetiPrefab.GetComponent<ParticleSystem>();
         // Baþlangýçta konfeti partikülünü devre dýþý býrak
@@ -35,29 +38,60 @@ public class KaseKontrol : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        
+
         // Eðer etkileþime giren nesne domatese ait bir collider ise
-        if (other.name.Contains("Tomato"))
+        if (other.name.Contains("TomatoC"))
         {
-            domatesSayisi++; // Domates sayýsýný bir artýr
-            Debug.Log("T girdi.  " + domatesSayisi);
+            domatesDilimSayisi++; // Domates sayýsýný bir artýr
+            Debug.Log("T girdi.  " + domatesDilimSayisi);
             //Destroy(other.gameObject); // Domatesi yok et (kaseye koyulduðunda yok edilir)
+            XRGrabInteractableTwoAttach scriptComponent = other.GetComponent<XRGrabInteractableTwoAttach>();
+            if (scriptComponent != null)
+            {
+                scriptComponent.enabled = false;
+            }
+            BravoVoice.Play(); 
+        }
+
+        // Eðer etkileþime giren nesne salatalýða ait bir collider ise
+        if (other.name.Contains("CucumberC"))
+        {
+            salatalýkDilimSayisi++; // salatalýk sayýsýný bir artýr
+            Debug.Log("C girdi.  " + salatalýkDilimSayisi);
+            //Destroy(other.gameObject); // salatalýk yok et (kaseye koyulduðunda yok edilir)
+            XRGrabInteractableTwoAttach scriptComponent = other.GetComponent<XRGrabInteractableTwoAttach>();
+            if (scriptComponent != null)
+            {
+                scriptComponent.enabled = false;
+            }
             BravoVoice.Play();
         }
-        
+
+        // Eðer etkileþime giren nesne ekmeðe ait bir collider ise
+        if (other.name.Contains("BreadC"))
+        {
+            ekmekDilimSayisi++; // ekmek sayýsýný bir artýr
+            Debug.Log("B girdi.  " + ekmekDilimSayisi);
+            //Destroy(other.gameObject); // ekmeði yok et (kaseye koyulduðunda yok edilir)
+            XRGrabInteractableTwoAttach scriptComponent = other.GetComponent<XRGrabInteractableTwoAttach>();
+            if (scriptComponent != null)
+            {
+                scriptComponent.enabled = false;
+            }
+            BravoVoice.Play();
+        }
     }
 
     void Update()
     {
         // Eðer ekmeði kaseye yerleþtirdiysen ve dört domatesi de kaseye koyduysan
-        if (domatesSayisi == 4)
+        if (domatesDilimSayisi == 3 && salatalýkDilimSayisi == 3 && ekmekDilimSayisi == 3)
         {
             //source.Play();
             StartCoroutine(StartAfterDelay(2f));
             //source.PlayOneShot(ClapVoice); // Ses dosyasýný oynat
-
-
         }
+
     }
 
     IEnumerator StartAfterDelay(float delayTime)
@@ -97,4 +131,3 @@ public class KaseKontrol : MonoBehaviour
 
     }
 }
-
