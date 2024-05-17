@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class XRSocketTagInteractor : XRSocketInteractor
 {
 
     public string targetTag;
+
+    
 
     public GameObject basariliEkrani; // Görev baþarýlý olduðunda görünecek olan ekran
     public Transform hedefNokta; // Görev baþarýlý olduðunda ýþýnlanýlacak mekan
@@ -17,9 +20,10 @@ public class XRSocketTagInteractor : XRSocketInteractor
     private ParticleSystem konfetiPartikul; // Konfeti partikül sistemi
     public GameObject RayLine;
 
+    public AudioSource BravoVoice;
+
     void Start()
     {
-        
 
         // Konfeti partikül sistemini al
         konfetiPartikul = konfetiPrefab.GetComponent<ParticleSystem>();
@@ -39,13 +43,29 @@ public class XRSocketTagInteractor : XRSocketInteractor
 
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
-        XRBaseInteractable interactable = args.interactable; 
-
-        if (interactable.transform.tag == targetTag)
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentSceneIndex == 2)
         {
-            StartCoroutine(StartAfterDelay(2f));
-            
+            XRBaseInteractable interactable = args.interactable;
+
+            if (interactable.transform.tag == targetTag)
+            {
+                
+                BravoVoice.Play();
+                StartCoroutine(StartAfterDelay(2f));
+                
+            }
         }
+        else if (currentSceneIndex == 3 || currentSceneIndex == 4)
+        {
+            XRBaseInteractable interactable = args.interactable;
+
+            if (interactable.transform.tag == targetTag)
+            {
+              
+            }
+        }
+        
     }
 
 

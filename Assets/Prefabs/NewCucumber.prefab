@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1970334628016260672}
   - component: {fileID: 1970334628016260675}
   - component: {fileID: 1970334628016260674}
+  - component: {fileID: 1120166301}
   m_Layer: 10
   m_Name: NewCucumber
   m_TagString: CanSlice
@@ -104,7 +105,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1970334628016260672
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -270,6 +271,19 @@ MonoBehaviour:
   poseTransitionDuration: 0.2
   rightHandPose: {fileID: 3133777532469047632}
   leftHandPose: {fileID: 3133777532084695416}
+--- !u!114 &1120166301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2863167717185213250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdccabfa80944924987b14d973b4be84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 0}
 --- !u!1 &3133777531878508728
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ public class level3Kontrol : MonoBehaviour
     public GameObject RayLine;
 
     public AudioSource source;
-    //public AudioClip ClapVoice;
+  
     public AudioSource BravoVoice;
 
 
@@ -27,8 +27,6 @@ public class level3Kontrol : MonoBehaviour
 
     void Start()
     {
-        //source = GetComponent<AudioSource>();
-        //source.clip = ClapVoice;
 
         // Konfeti partikül sistemini al
         konfetiPartikul = konfetiPrefab.GetComponent<ParticleSystem>();
@@ -44,7 +42,7 @@ public class level3Kontrol : MonoBehaviour
         {
             domatesDilimSayisi++; // Domates sayýsýný bir artýr
             Debug.Log("T girdi.  " + domatesDilimSayisi);
-            //Destroy(other.gameObject); // Domatesi yok et (kaseye koyulduðunda yok edilir)
+            
             XRGrabInteractableTwoAttach scriptComponent = other.GetComponent<XRGrabInteractableTwoAttach>();
             if (scriptComponent != null)
             {
@@ -58,7 +56,7 @@ public class level3Kontrol : MonoBehaviour
         {
             salatalýkDilimSayisi++; // salatalýk sayýsýný bir artýr
             Debug.Log("C girdi.  " + salatalýkDilimSayisi);
-            //Destroy(other.gameObject); // salatalýk yok et (kaseye koyulduðunda yok edilir)
+            
             XRGrabInteractableTwoAttach scriptComponent = other.GetComponent<XRGrabInteractableTwoAttach>();
             if (scriptComponent != null)
             {
@@ -72,7 +70,7 @@ public class level3Kontrol : MonoBehaviour
         {
             ekmekDilimSayisi++; // ekmek sayýsýný bir artýr
             Debug.Log("B girdi.  " + ekmekDilimSayisi);
-            //Destroy(other.gameObject); // ekmeði yok et (kaseye koyulduðunda yok edilir)
+
             XRGrabInteractableTwoAttach scriptComponent = other.GetComponent<XRGrabInteractableTwoAttach>();
             if (scriptComponent != null)
             {
@@ -84,12 +82,12 @@ public class level3Kontrol : MonoBehaviour
 
     void Update()
     {
-        // Eðer ekmeði kaseye yerleþtirdiysen ve dört domatesi de kaseye koyduysan
-        if (domatesDilimSayisi == 5 || salatalýkDilimSayisi == 5 || ekmekDilimSayisi == 5)
+        // Proje geliþtirilirse salatalýk yerine diðerlerinin kesilmesi için..
+        if (domatesDilimSayisi >= 1 || salatalýkDilimSayisi >= 1 || ekmekDilimSayisi >= 1)
         {
-            //source.Play();
+            
             StartCoroutine(StartAfterDelay(2f));
-            //source.PlayOneShot(ClapVoice); // Ses dosyasýný oynat
+            
         }
         
     }
@@ -97,10 +95,9 @@ public class level3Kontrol : MonoBehaviour
     IEnumerator StartAfterDelay(float delayTime)
     {
         yield return new WaitForSeconds(delayTime); // Belirtilen süre kadar bekler.
-                                                    // Karakteri hedef noktaya ýþýnla
-                                                    // Karakteri hedef noktaya ýþýnla
+                                                    
         karakterTransform.position = hedefNokta.position;
-        //kaseTransform.position = hedefNokta.position;
+        
         // Konfeti partikülünü aktifleþtir ve belirli bir süre sonra durdur
         StartCoroutine(KonfetiPatlat());
 
@@ -122,12 +119,12 @@ public class level3Kontrol : MonoBehaviour
     {
         // Konfeti partikülünü baþlat
         konfetiPartikul.Play();
-        //source.Play();
+        
         // Belirli bir süre beklet
         yield return new WaitForSeconds(konfetiPatlamaSuresi);
         // Konfeti partikülünü durdur
         konfetiPartikul.Stop();
-        //source.Stop();
+        
 
     }
 }

@@ -7,7 +7,6 @@ public class KaseKontrol : MonoBehaviour
     public GameObject basariliEkrani; // Görev baþarýlý olduðunda görünecek olan ekran
     public Transform hedefNokta; // Görev baþarýlý olduðunda ýþýnlanýlacak mekan
     public Transform karakterTransform; // Karakterin transformu
-    public Transform kaseTransform; // Karakterin transformu
     public GameObject konfetiPrefab; // Konfeti partikül prefabý
 
     public float konfetiPatlamaSuresi = 5f; // Konfeti patlama süresi (saniye)
@@ -18,14 +17,13 @@ public class KaseKontrol : MonoBehaviour
     public GameObject RayLine;
 
     public AudioSource source;
-    //public AudioClip ClapVoice;
+
     public AudioSource BravoVoice;
 
 
     void Start()
     {
-        //source = GetComponent<AudioSource>();
-        //source.clip = ClapVoice;
+
         
         // Konfeti partikül sistemini al
         konfetiPartikul = konfetiPrefab.GetComponent<ParticleSystem>();
@@ -41,7 +39,13 @@ public class KaseKontrol : MonoBehaviour
         {
             domatesSayisi++; // Domates sayýsýný bir artýr
             Debug.Log("T girdi.  " + domatesSayisi);
-            //Destroy(other.gameObject); // Domatesi yok et (kaseye koyulduðunda yok edilir)
+
+            XRGrabInteractableTwoAttach scriptComponent = other.GetComponent<XRGrabInteractableTwoAttach>();
+            if (scriptComponent != null)
+            {
+                scriptComponent.enabled = false;
+            }
+
             BravoVoice.Play();
         }
         
@@ -50,11 +54,11 @@ public class KaseKontrol : MonoBehaviour
     void Update()
     {
         // Eðer ekmeði kaseye yerleþtirdiysen ve dört domatesi de kaseye koyduysan
-        if (domatesSayisi == 4)
+        if (domatesSayisi >= 4)
         {
-            //source.Play();
+
             StartCoroutine(StartAfterDelay(2f));
-            //source.PlayOneShot(ClapVoice); // Ses dosyasýný oynat
+ 
 
 
         }
@@ -63,10 +67,9 @@ public class KaseKontrol : MonoBehaviour
     IEnumerator StartAfterDelay(float delayTime)
     {
         yield return new WaitForSeconds(delayTime); // Belirtilen süre kadar bekler.
-                                                    // Karakteri hedef noktaya ýþýnla
-                                                    // Karakteri hedef noktaya ýþýnla
+                                                    
         karakterTransform.position = hedefNokta.position;
-        //kaseTransform.position = hedefNokta.position;
+        
         // Konfeti partikülünü aktifleþtir ve belirli bir süre sonra durdur
         StartCoroutine(KonfetiPatlat());
 
@@ -88,12 +91,12 @@ public class KaseKontrol : MonoBehaviour
     {
         // Konfeti partikülünü baþlat
         konfetiPartikul.Play();
-        //source.Play();
+        
         // Belirli bir süre beklet
         yield return new WaitForSeconds(konfetiPatlamaSuresi);
         // Konfeti partikülünü durdur
         konfetiPartikul.Stop();
-        //source.Stop();
+        
 
     }
 }

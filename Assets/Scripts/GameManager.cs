@@ -29,21 +29,21 @@ public class GameManager : MonoBehaviour
     public AudioClip Level2GörevSesi;
     public AudioClip Level3GörevSesi;
     public AudioClip Level4GörevSesi;
-    //private List<GameObject> grabObj = new List<GameObject>();
 
-    
+
+
 
     private bool isPaused = false;
 
     private void Start()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log("mevcut level: "+currentSceneIndex);
+        Debug.Log("mevcut level: " + currentSceneIndex);
         Time.timeScale = 1f; // Oyun zamanýný devam ettir.
         isPaused = false;
         pauseMenuUI.SetActive(false);
         RayLine.SetActive(false);
-        
+
         Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
         Cursor.visible = false; // Fareyi görünmez yap.
 
@@ -81,16 +81,6 @@ public class GameManager : MonoBehaviour
 
 
 
-        // CanSlice tag'ine sahip tüm objeleri bul
-        //GameObject[] grabableObj = GameObject.FindGameObjectsWithTag("CanSlice");
-
-        //// Her bir objeyi devre dýþý býrak
-        //foreach (GameObject obj in grabableObj)
-        //{
-        //    obj.SetActive(false);
-        //    grabObj.Add(obj);
-        //}
-
         Kapak.SetActive(true);
         Kapak2.SetActive(true);
 
@@ -104,11 +94,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ActivateObjectsWithDelay()
     {
-        //foreach (GameObject obj in grabObj)
-        //{
-        //    obj.SetActive(true);
-        //    yield return new WaitForSeconds(1f); // Her bir objenin aktive edilmesi arasýnda 0.1 saniye bekleyin
-        //}
+     
         Kapak.SetActive(false);
         Kapak2.SetActive(false);
         yield return new WaitForSeconds(1f);
@@ -128,6 +114,51 @@ public class GameManager : MonoBehaviour
             {
                 RayLine.SetActive(true);
                 Pause();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+
+            SceneManager.LoadScene(currentSceneIndex);
+            Time.timeScale = 1f; // Oyun zamanýný devam ettir.
+            isPaused = false;
+            pauseMenuUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
+            Cursor.visible = false; // Fareyi görünmez yap.
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+
+            SceneManager.LoadScene(currentSceneIndex + 1);
+            Time.timeScale = 1f; // Oyun zamanýný devam ettir.
+            isPaused = false;
+            pauseMenuUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
+            Cursor.visible = false; // Fareyi görünmez yap.
+
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            if (currentSceneIndex != 0)
+            {
+                SceneManager.LoadScene(currentSceneIndex - 1);
+                Time.timeScale = 1f; // Oyun zamanýný devam ettir.
+                isPaused = false;
+                pauseMenuUI.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked; // Fareyi kilitli hale getir.
+                Cursor.visible = false; // Fareyi görünmez yap.
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (currentSceneIndex != 0)
+            {
+                SceneManager.LoadScene(0);
             }
         }
 
@@ -154,7 +185,7 @@ public class GameManager : MonoBehaviour
             StartCoroutine(ActivateObjectsWithDelay());
         }
 
-        
+
 
     }
 
