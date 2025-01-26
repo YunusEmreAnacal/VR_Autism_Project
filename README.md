@@ -37,14 +37,6 @@ This project is currently in **development** and is focused on exploring the pot
 
 ---
 
-
-### How to Run:
-
-1. Navigate to the `Build` folder in the repository.
-2. Download the contents of the folder.
-3. Set up your Oculus Quest device and transfer the files.
-4. Launch the application on your VR headset to begin the experience.
-
 ---
 
 ## 🌟 Team and Credits
@@ -54,8 +46,3 @@ This project is currently in **development** and is focused on exploring the pot
 - **VR Designer**: [Yunus Emre Anaçal]  
 - **Sound and Audio**: [Yunus Emre Anaçal]  
 
-## 🔮 Future Plans
-
-- **Expand Scenarios**: Add more interactive and calming environments for a broader user experience.  
-- **User Feedback Integration**: Continuously improve based on user feedback and research on autism therapy.  
-- **Multi-user Interaction**: Enable multiplayer features to allow group activities and social skill-building.
